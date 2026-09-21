@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7c948">
+<title>Flores amarillas para ti 💛</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{
+  min-height:100vh;overflow:hidden;font-family:Arial,sans-serif;
+  background:linear-gradient(to bottom,#8fd3ff 0%,#c8e9ff 38%,#ffe9a0 70%,#efbd4e 100%);
+  color:#624900;touch-action:manipulation;
+}
+#jardin{position:fixed;inset:0;overflow:hidden}
+.encabezado{position:fixed;top:0;left:0;width:100%;z-index:20;text-align:center;padding:25px 15px 10px;text-shadow:0 2px 8px #fff8}
+.encabezado h1{font:clamp(30px,7vw,52px) Georgia,serif;color:#765500}
+.encabezado p{margin-top:7px;font-size:clamp(14px,4vw,18px)}
+.sol{position:absolute;top:11vh;right:9vw;width:90px;height:90px;border-radius:50%;background:#ffe76d;box-shadow:0 0 45px #ffe66d}
+.nube{position:absolute;top:18%;left:-150px;width:120px;height:34px;border-radius:40px;background:#ffffffb8;animation:nube 28s linear infinite}
+.nube:before,.nube:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.nube:before{width:48px;height:48px;left:18px;bottom:4px}.nube:after{width:58px;height:58px;right:15px;bottom:3px}
+@keyframes nube{to{left:110%}}
+.arbol{position:absolute;bottom:55px;left:4vw;width:100px;height:175px}
+.tronco{position:absolute;bottom:0;left:43px;width:18px;height:110px;background:#704522;border-radius:12px}
+.copa{position:absolute;top:0;left:0;width:100px;height:100px;background:#39752d;border-radius:50%;box-shadow:28px 20px 0 #478b35,-24px 24px 0 #326827}
+.suelo{position:absolute;bottom:0;left:0;width:100%;height:65px;background:linear-gradient(#775128,#4b331c);z-index:3}
+.pasto{position:absolute;bottom:55px;left:0;width:100%;height:25px;z-index:4;background:linear-gradient(135deg,transparent 47%,#3d762d 48% 55%,transparent 56%) 0 0/22px 22px repeat-x}
+.flor{
+ position:absolute;width:80px;height:150px;transform:translateX(-50%) scaleY(0);
+ transform-origin:bottom center;z-index:8;cursor:pointer;
+ animation:crecer 1.5s cubic-bezier(.2,.85,.25,1.15) forwards;
+}
+@keyframes crecer{70%{transform:translateX(-50%) scaleY(1.08)}100%{transform:translateX(-50%) scaleY(1)}}
+.tallo{position:absolute;width:6px;height:105px;left:37px;bottom:0;background:linear-gradient(90deg,#397b28,#69aa38,#397b28);border-radius:8px}
+.hoja{position:absolute;width:34px;height:18px;background:#65a936;border-radius:100% 0 100% 0;bottom:42px}
+.hoja.izq{left:5px;transform:rotate(-25deg)}.hoja.der{right:5px;transform:scaleX(-1) rotate(-25deg)}
+.cabeza{position:absolute;width:70px;height:70px;left:5px;top:4px;animation:balanceo 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes balanceo{50%{transform:rotate(3deg)}}
+.petalo{position:absolute;width:24px;height:38px;left:23px;top:0;background:linear-gradient(#ffed72,#ffc400);border-radius:60%;transform-origin:12px 35px}
+.petalo:nth-child(1){transform:rotate(0deg) translateY(-10px)}.petalo:nth-child(2){transform:rotate(45deg) translateY(-10px)}.petalo:nth-child(3){transform:rotate(90deg) translateY(-10px)}.petalo:nth-child(4){transform:rotate(135deg) translateY(-10px)}.petalo:nth-child(5){transform:rotate(180deg) translateY(-10px)}.petalo:nth-child(6){transform:rotate(225deg) translateY(-10px)}.petalo:nth-child(7){transform:rotate(270deg) translateY(-10px)}.petalo:nth-child(8){transform:rotate(315deg) translateY(-10px)}
+.centro{position:absolute;width:30px;height:30px;left:20px;top:20px;background:radial-gradient(circle,#b87800 0 35%,#704500 36%);border:3px solid #6b4300;border-radius:50%;z-index:3}
+.contador{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);z-index:20;background:#ffffffe8;padding:9px 18px;border-radius:30px;font-size:14px;white-space:nowrap;box-shadow:0 5px 20px #0002}
+.carta-fondo{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:#17140599;backdrop-filter:blur(5px);padding:20px}
+.carta-fondo.mostrar{display:flex}
+.carta{width:min(92vw,530px);max-height:86vh;overflow:auto;background:linear-gradient(#fffdf1,#fff8d9);border-radius:26px;padding:35px 25px;text-align:center;box-shadow:0 25px 80px #0005;animation:entrada .5s ease}
+@keyframes entrada{from{opacity:0;transform:scale(.75) translateY(30px)}to{opacity:1;transform:none}}
+.carta h2{font:clamp(25px,7vw,34px) Georgia,serif;color:#765700;margin-bottom:18px}
+.carta p{font:18px/1.75 Georgia,serif;color:#5d4a16;white-space:pre-line}
+.firma{margin-top:18px;font:27px "Brush Script MT",cursive;color:#896600}
+.carta button{margin-top:22px;border:0;border-radius:30px;padding:13px 28px;background:#ffd13c;color:#5c4500;font-weight:bold;font-size:16px;cursor:pointer}
+@media(max-width:600px){.arbol{transform:scale(.72);transform-origin:bottom left}.flor{width:70px;height:140px}.carta p{font-size:16px}}
+</style>
+</head>
+<body>
+<div id="jardin">
+  <div class="sol"></div><div class="nube"></div>
+  <div class="arbol"><div class="copa"></div><div class="tronco"></div></div>
+  <div class="pasto"></div><div class="suelo"></div>
+</div>
+
+<div class="encabezado">
+  <h1>🌻 Flores para Yessica 🌻</h1>
+  <p>Una pequeña sorpresa hecha especialmente para ti 💛</p>
+  <p>Toca el jardín y deja que nazcan las flores.</p>
+</div>
+
+<div class="contador" id="contador">🌻 0 flores han florecido</div>
+
+<div class="carta-fondo" id="fondo">
+  <div class="carta">
+    <h2>🌻 Para Yessica 🌻</h2>
+    <p>Yessica, esta pequeña sorpresa es especialmente para ti. 💛
+
+Cada vez que aparezca una flor, recuerda que hay detalles que no necesitan una fecha especial para tener significado.
+
+Quise convertir unas simples flores amarillas en un pequeño jardín que puedas visitar y que, aunque sea por unos segundos, te saque una sonrisa. 🌻✨
+
+Espero que te guste este pequeño detalle.</p>
+    <div class="firma">Con cariño 💛</div>
+    <button id="cerrar">Cerrar 🌻</button>
+  </div>
+</div>
+
+<script>
+const jardin=document.getElementById("jardin");
+const fondo=document.getElementById("fondo");
+const cerrar=document.getElementById("cerrar");
+const contador=document.getElementById("contador");
+let flores=0;
+
+function crearFlor(x){
+  const flor=document.createElement("div");
+  flor.className="flor";
+  const altura=innerWidth<=600?140:150;
+  flor.style.left=x+"px";
+  flor.style.top=(jardin.clientHeight-65-altura)+"px";
+  flor.innerHTML=`
+    <div class="cabeza">
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+    <div class="hoja izq"></div><div class="hoja der"></div>`;
+  flor.addEventListener("pointerdown",e=>{
+    e.stopPropagation();
+    fondo.classList.add("mostrar");
+  });
+  jardin.appendChild(flor);
+  flores++;
+  contador.textContent=flores===1?"🌻 1 flor ha florecido":"🌻 "+flores+" flores han florecido";
+}
+jardin.addEventListener("pointerdown",e=>{
+  if(e.target.closest(".flor")) return;
+  let x=Math.max(45,Math.min(innerWidth-45,e.clientX));
+  crearFlor(x);
+});
+cerrar.addEventListener("click",()=>fondo.classList.remove("mostrar"));
+fondo.addEventListener("pointerdown",e=>{if(e.target===fondo)fondo.classList.remove("mostrar")});
+window.addEventListener("resize",()=>{
+ document.querySelectorAll(".flor").forEach(f=>{
+   const altura=innerWidth<=600?140:150;
+   f.style.top=(jardin.clientHeight-65-altura)+"px";
+ });
+});
+</script>
+</body>
+</html>
